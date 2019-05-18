@@ -1,8 +1,7 @@
-package khalid.com.groupierecyclerviewsample
+package khalid.com.groupierecyclerviewsample.numbersExample
 
 import android.graphics.Color
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -11,18 +10,19 @@ import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
+import khalid.com.groupierecyclerviewsample.R
 
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private val interestingSection = Section()
+    private val secondSection = Section()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val boringRecyclerItems = generateFancyItems(6)
-        val interestingRecyclerItems = generateFancyItems(12)
+        val listedNumbs = getColoredNumbs(6)
+        val gridNums = getColoredNumbs(12)
         val groupAdapter = GroupAdapter<ViewHolder>().apply {
             spanCount = 3
         }
@@ -32,26 +32,26 @@ class MainActivity : AppCompatActivity() {
             }
             adapter = groupAdapter
         }
-        ExpandableGroup(ExpandableHeaderItem("Boring group"), true).apply {
-            add(Section(boringRecyclerItems))
+        ExpandableGroup(ExpandableItem("First Section"), true).apply {
+            add(Section(listedNumbs))
             groupAdapter.add(this)
         }
-        ExpandableGroup(ExpandableHeaderItem("Interesting group"), true).apply {
-            interestingSection.addAll(interestingRecyclerItems)
-            add(interestingSection)
+        ExpandableGroup(ExpandableItem("Second secondSection"), false).apply {
+            secondSection.addAll(gridNums)
+            add(secondSection)
             groupAdapter.add(this)
         }
         fab.setOnClickListener{
-            interestingRecyclerItems.shuffle()
-            interestingSection.update(interestingRecyclerItems)
+            gridNums.shuffle()
+            secondSection.update(gridNums)
         }
     }
-    private fun generateFancyItems(count: Int): MutableList<RecyclerItem>{
-        val rnd = Random()
+    private fun getColoredNumbs(count: Int): MutableList<RecyclerItem>{
+        val random = Random()
         return MutableList(count){
-            val color = Color.argb(255, rnd.nextInt(256),
-                rnd.nextInt(256), rnd.nextInt(256))
-            RecyclerItem(color, rnd.nextInt(100))
+            val color = Color.argb(255, random.nextInt(256),
+                random.nextInt(256), random.nextInt(256))
+            RecyclerItem(color, random.nextInt(100))
         }
     }
 

@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".numbersExample.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -21,6 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@drawable/ic_sync_white_24dp"/>
+            app:srcCompat="@drawable/ic_shuffle_black_24dp"/>
 
 </FrameLayout>

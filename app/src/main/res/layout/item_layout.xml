@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/item_fancy_cardView"
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_margin="4dp"
@@ -14,11 +14,12 @@
         app:cardElevation="4dp">
 
     <TextView
-            android:id="@+id/item_fancy_number"
+            android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            tools:text="1"
+            tools:text="0"
+            android:textColor="#FFFF"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textSize="50sp"/>
 
